@@ -8,7 +8,7 @@ class Task_model extends CI_Model
 	}
 
 	function create(){
-		$this->db->insert("tbl_task",array(
+		$this->db->insert("tbl_doni",array(
 			"task"=>"",
 			"date"=>date('Y-m-d'),
 			"time"=>date('H:i:s'),
@@ -19,19 +19,19 @@ class Task_model extends CI_Model
 
 	function read(){
 		$this->db->order_by("id","desc");
-		$query=$this->db->get("tbl_task");
+		$query=$this->db->get("tbl_doni");
 		return $query->result_array();
 	}
 
 
 	function update($id,$value,$modul){
 		$this->db->where(array("id"=>$id));
-		$this->db->update("tbl_task",array($modul=>$value));
+		$this->db->update("tbl_doni",array($modul=>$value));
 	}
 
 	function delete($id){
 		$this->db->where("id",$id);
-		$this->db->delete("tbl_task");
+		$this->db->delete("tbl_doni");
 	}
 
 
